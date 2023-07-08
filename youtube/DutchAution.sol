@@ -21,7 +21,7 @@ contract DutchAution{
     uint public immutable expiresAt;
     uint public immutable discountRate;
 
-    constrauctor(
+    constructor(
         uint _startingPrice,
         uint _discountRate,
         address _nft,
@@ -43,7 +43,7 @@ contract DutchAution{
     }
     function getPrice() public view returns(uint){
         uint discount = discountRate *timeElapsed;
-        retun startingPrice - discount;
+        return startingPrice - discount;
     }
     function buy() external payable{
         require(block.timestamp < expiresAt,"auction expired");
